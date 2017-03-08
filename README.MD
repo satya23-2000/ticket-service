@@ -2,22 +2,37 @@
 	TicketService is Project to provide services to Hold, Reserve the tickets for particual Venue
 
 # Installation and Execution
-	Download the Project, Copy to a location and call below services ., 
+	
+	Instaltion
+		Set JAVA_HOME
+		
+		Set Java and Maven class path
 
-	curl -X GET http://localhost:8080/ticket-service/available-seats
-		--> returns available seats
-	curl -X POST http://localhost:8080/ticket-service/hold-seats/2/abc@abc.com
-		--> holds 2 tickets if availabe , if not available Display message "Not Enough seats available"
-	curl -X POST http://localhost:8080/ticket-service/reserve-seats/89009/abc@abc.com
-		--> Reserves the held tickets and update the database and returns a success message "Seats Reserved
+		Download the Project, Copy to a location and run the below commands 
+			
+		mvn clean install
+		
+		java -cp target\ticketservice-0.0.1-SNAPSHOT.jar org.springframework.boot.loader.JarLauncher
+
+	Sample Execcution of Services
+
+		curl -X GET http://localhost:8080/ticket-service/available-seats
+			--> returns available seats
+		curl -X POST http://localhost:8080/ticket-service/hold-seats/2/abc@abc.com
+			--> holds 2 tickets if availabe , if not available Display message "Not Enough seats available"
+
+		curl -X POST http://localhost:8080/ticket-service/reserve-seats/89009/abc@abc.com
+			--> Reserves the held tickets and update the database and returns the reservation confirmation number
 
 
 # Project Dependeices
 
 	Java 1.8
+	Apache Maven 3.3.9
+
+
 	Spring Boot 1.5.2
 	JPA including spring-data-jpa, spring-orm and Hibernate
-	Maven
 	H2 Embeded Database
 	Embeded Tomcat
 	JUnit 4.12 and Mockito 1.10.19
@@ -84,3 +99,13 @@
 # Test Results 
 
 
+		-------------------------------------------------------
+		 T E S T S
+		-------------------------------------------------------
+		Running com.walmart.ticketservice.service.TicketServiceImplTest
+
+		Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.367 sec - in com.walmart.ticketservice.service.TicketServiceImplTest
+
+		Results :
+
+		Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
